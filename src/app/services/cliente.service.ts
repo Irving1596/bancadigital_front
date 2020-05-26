@@ -8,7 +8,7 @@ import {Observable, throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-  private baseURL = 'http://localhost:3200/';
+  private baseURL = 'http://192.168.1.128:3200/';
   httpOptions = {
  headers: new HttpHeaders({
    'Content-Type': 'application/json'
