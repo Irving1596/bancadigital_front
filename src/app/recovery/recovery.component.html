@@ -1,0 +1,79 @@
+
+<div class="row">
+        <div class="col-md-6 offset-md-3 mt-4">
+            <h3>Recuperación de usuario</h3>
+            <form>
+                        <h6>
+                                        Para recuperar su contraseña necesitamos que valide los siguientes datos, esto con el fin de confirmar que usted es el propietario de la cuenta
+                                    </h6>
+                <br>
+    <h6>
+        Seleccione el tipo de identificación 
+    </h6>
+    <div class="form-group">
+  
+                    <p>
+                            <select class="browser-default custom-select"  name="miselect" [(ngModel)]="seleccionado">
+                            <option selected="cedula" [value]="item" *ngFor="let item of tipoid">{{item}} </option>
+                            </select>
+                            </p>
+<!--
+           <mat-form-field>
+              <mat-select placeholder="Grupos" [formControl]="sedeControl" (selectionChange)="eventGrupo($event)" required>
+                                    <mat-option *ngFor="let estudg of estudiantesgrupo" [value]="estudg.id_grupo">
+                                    {{estudg.nombre}}
+                                  </mat-option>
+                                    </mat-select>
+                                      </mat-form-field>
+                                      -->
+
+
+            </div>
+        
+            <form [formGroup]="validatingForm" *ngIf="seleccionado == 'cedula'">
+
+                        <div class="md-form">
+                                <input [(ngModel)]="id" mdbInput mdbValidate type="text" pattern="[0-9]*" maxlength="10" id="form2" class="form-control" formControlName="minLength">
+                                <label for="form2">Escriba su cédula</label>
+                                <mdb-error *ngIf="input.invalid && (input.dirty || input.touched)">El formato de
+                                         la cédula está comprendido por 10 dígitos, asegurese de cumplir con este criterio</mdb-error>
+                                <mdb-success *ngIf="input.valid && (input.dirty || input.touched)">Ok</mdb-success>
+                              </div>
+
+
+                   <!--- <label for="resetPasswordEmail">Account Email</label>
+                    <input type="email"
+                           class="form-control"
+                           id="resetPasswordEmail"
+                           placeholder="Enter email">
+                   -->
+            </form>
+
+            <div class="form-group" *ngIf="seleccionado == 'pasaporte'">
+                    <label for="resetPasswordEmail">Pasaporte</label>
+                    <input [(ngModel)]="id"  type="number"
+                           class="form-control"
+                           placeholder="Escriba su número de pasaporte">
+                </div>
+
+                <form>
+                        <div class="md-form">
+                          <input [(ngModel)]="pin" type="number"  mdbInput mdbValidate name="input" type="number" id="form7" class="form-control" [(ngModel)]="pattern" #input1="ngModel" required [pattern]="'[0-9]*'">
+                          <label for="form7">Pin de su tarjeta</label>
+                          <mdb-error *ngIf="input1.invalid && (input1.dirty || input1.touched)">El pin esta comprendido por digitos</mdb-error>
+                          <mdb-success *ngIf="input1.valid && (input1.dirty || input1.touched)">Ok</mdb-success>
+                        </div>
+                      </form>
+               <!--- <label for="resetPasswordEmail">Account Email</label>
+                <input type="email"
+                       class="form-control"
+                       id="resetPasswordEmail"
+                       placeholder="Enter email">
+               -->
+       
+    
+                <button type="submit"
+                (click)="valida_cliente()" class="btn btn-primary">Confirmar <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
