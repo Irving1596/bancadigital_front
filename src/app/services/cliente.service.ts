@@ -4,11 +4,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 //import 'rxjs/add/operator/catch';
 import { catchError, retry} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  private baseURL = 'http://192.168.1.128:3200/';
+  private APIEndpoint = environment.APIEndpoint;
+  //private baseURL = 'http://192.168.1.128:3200/';
   httpOptions = {
  headers: new HttpHeaders({
    'Content-Type': 'application/json'
@@ -18,7 +20,7 @@ export class ClienteService {
   constructor(private http: HttpClient) { }
 
   getClienteRecoveryUser(id: number,pin: number){
-    let url = this.baseURL+ 'cliente_recovery/?userId='+id+'&userPass='+pin;
+    let url = this.APIEndpoint+ 'cliente_recovery/?userId='+id+'&userPass='+pin;
 return this.http.get(url).pipe(
 map(respuestaData => {
 console.log('respuestaDataaaa::', respuestaData);
