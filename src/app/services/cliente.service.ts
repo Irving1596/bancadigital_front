@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class ClienteService {
   private APIEndpoint = environment.APIEndpoint;
-  //private baseURL = 'http://192.168.1.128:3200/';
+  //private APIEndpoint = 'http://192.168.1.128:3200/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
