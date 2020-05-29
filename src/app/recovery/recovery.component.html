@@ -23,7 +23,7 @@
       <form [formGroup]="validatingForm" *ngIf="seleccionado == 'cedula'">
 
         <div class="md-form">
-          <input [(ngModel)]="id" mdbInput mdbValidate type="text" pattern="[0-9]*" maxlength="10" id="form2"
+          <input [(ngModel)]="id" mdbInput mdbValidate type="text" pattern="[0-9]*" maxlength="10" id="form2" 
             class="form-control" formControlName="minLength">
           <label for="form2">Escriba su cédula</label>
           <mdb-error *ngIf="input.invalid && (input.dirty || input.touched)">El formato de
@@ -34,13 +34,13 @@
 
       <div class="form-group" *ngIf="seleccionado == 'pasaporte'">
         <label for="resetPasswordEmail">Pasaporte</label>
-        <input [(ngModel)]="id" type="number" class="form-control" placeholder="Escriba su número de pasaporte">
+        <input [(ngModel)]="id" [ngModelOptions]="{standalone: true}" required type="number" class="form-control" placeholder="Escriba su número de pasaporte">
       </div>
 
       <form>
         <div class="md-form">
-          <input [(ngModel)]="pin" type="number" mdbInput mdbValidate name="input" type="number" id="form7"
-            class="form-control" [(ngModel)]="pattern" #input1="ngModel" required [pattern]="'[0-9]*'">
+          <input [(ngModel)]="pin" type="number" mdbInput mdbValidate name="input" type="number" id="form7" 
+            class="form-control" [(ngModel)]="pattern" #input1="ngModel" [pattern]="'[0-9]*'">
           <label for="form7">Pin de su tarjeta</label>
           <mdb-error *ngIf="input1.invalid && (input1.dirty || input1.touched)">El pin esta comprendido por digitos
           </mdb-error>
@@ -48,7 +48,7 @@
         </div>
       </form>
 
-      <button type="submit" (click)="valida_cliente()" class="btn btn-primary">Confirmar <i
+      <button type="submit" (click)="valida_cliente()" [disabled]="(!pin&&!id)||(!pin||!id)" class="btn btn-primary">Confirmar <i
           class="fas fa-paper-plane"></i></button>
     </form>
   </div>

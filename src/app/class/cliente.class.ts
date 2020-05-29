@@ -8,7 +8,7 @@ export class Cliente {
     nombre?: string
     apellido?: string
     correo?: Date
-    celular?: string
+    celular?: number
     
     constructor(
         id?: number,
@@ -19,7 +19,7 @@ export class Cliente {
         nombre?: string,
         apellido?: string,
         correo?: Date,
-        celular?: string
+        celular?: number
     ) {
     
         this.id=id;

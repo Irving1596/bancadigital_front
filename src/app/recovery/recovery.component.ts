@@ -42,9 +42,7 @@ export class RecoveryComponent implements OnInit {
         else {
           alert ('Usted no posee productos en el banco');
         }
-        //  return data;
       });
-        //console.log("data afuera del geltogin pero adentro de la fun",this.estudiantes);
   }
   guardarStorage(event){
     switch(event){

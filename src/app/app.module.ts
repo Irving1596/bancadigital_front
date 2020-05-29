@@ -13,6 +13,7 @@ import { VerificacionComponent } from './recovery/verificacion/verificacion.comp
 import { ClienteComponent } from './cliente/cliente.component';
 import { ClienteService } from './services/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RecoveryComponent,
     VerificacionComponent,
-    ClienteComponent
+    ClienteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

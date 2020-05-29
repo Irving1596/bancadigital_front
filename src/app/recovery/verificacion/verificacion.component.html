@@ -1,18 +1,22 @@
 <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
-        <h3>Se le ha enviado un codigo de validación a su correo y celular </h3>
+        <h3>Se le ha enviado un codigo de validación a su celular, confirme la validación </h3>
         <form>
             <br>
             <div class="form-group">
                 <label for="resetPasswordEmail">Ingrese el codigo</label>
-                <input type="email" class="form-control" id="resetPasswordEmail" placeholder="codigo de verificación">
+                <input [(ngModel)]="codigo_otp" [ngModelOptions]="{standalone: true}"  type="number" type="number" required class="form-control" placeholder="codigo de verificación">
             </div>
             <br>
- 
-            <button type="submit" class="btn btn-primary">Siguiente <i class="angle-double-right"
+            <!--
+ <div class="valido">
+    <mdb-success>Excelente {{cliente.nombre}} este es tu usuario:{{cliente.nombre_usuario}},selecciona el boton siguiente  </mdb-success>
+ </div>
+-->         
+ <button type="submit"  (click)="verifica_cliente()" class="btn btn-primary">Siguiente <i class="angle-double-right"
                     name="siguiente"></i></button>
 
-            <button type="submit" disabled class="btn btn-primary">Reenviar codigo <i class="angle-double-right"
+            <button type="submit" style="margin-left: 25px"  class="btn btn-primary">Reenviar codigo <i class="angle-double-right"
                     name="reenviar"></i></button>
         </form>
     </div>

@@ -31,6 +31,29 @@ export class ClienteService {
     );
   }
 
+  postSendVerify(verificacion) {
+    let url = this.APIEndpoint+ 'create_code';
+    console.log('body::::::: ', verificacion);
+    return this.http.post(url, verificacion, this.httpOptions)
+      .pipe(map(res => {
+        console.log('respuestapostttDataaa::', res);
+        return res;
+      })
+      );
+  }
+
+  postValidVerify(verificacion) {
+    let url = this.APIEndpoint+ 'valid_code';
+    console.log('body valid verif ::::::: ', verificacion);
+    return this.http.post(url, verificacion, this.httpOptions)
+      .pipe(map(res => {
+        console.log('respuestapostttDataaa validverif::', res);
+        return res;
+      })
+      );
+  }
+
+
   handleError(error) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
