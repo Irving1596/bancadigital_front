@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  APIEndpoint: 'http://bancabackend/'
+  APIEndpoint: 'http://localhost:3200/'
 };
 
 /*
