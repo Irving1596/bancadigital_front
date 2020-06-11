@@ -21,7 +21,7 @@ export class RecoveryComponent implements OnInit {
 
   ngOnInit(): void {
     this.validatingForm = new FormGroup({
-      minLength: new FormControl(null, [Validators.required, Validators.minLength(10),Validators.maxLength(10)])
+      minLength: new FormControl(null, [Validators.required, Validators.minLength(10)])
 
     });
 
@@ -34,7 +34,8 @@ export class RecoveryComponent implements OnInit {
           this.cliente = data;
           this.guardarStorage('clientes'); 
            console.log(this.cliente);
-           if(this.cliente!=null){
+           console.log("cliente",this.cliente);
+           if(this.cliente!=''){
          if(this.cliente.identificacion==this.id && this.cliente.password==this.pin){
               this.router.navigate(['verificacion']);
          }

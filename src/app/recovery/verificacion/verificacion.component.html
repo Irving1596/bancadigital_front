@@ -1,23 +1,39 @@
 <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
-        <h3>Se le ha enviado un codigo de validación a su celular, confirme la validación </h3>
-        <form>
+        <form *ngIf="(estado === 'novalido'||estado ==='timeout')">
+                <h3>Se le ha enviado un código de validación a su celular, confirme la validación </h3>
             <br>
+            <h5>Tiempo transcurrido: {{ellapsedTime}}</h5>
             <div class="form-group">
                 <label for="resetPasswordEmail">Ingrese el codigo</label>
-                <input [(ngModel)]="codigo_otp" [ngModelOptions]="{standalone: true}"  type="number" type="number" required class="form-control" placeholder="codigo de verificación">
+                <input [(ngModel)]="codigo_otp" [ngModelOptions]="{standalone: true}"  type="tel" required class="form-control" placeholder="codigo de verificación">
             </div>
             <br>
-            <!--
+            <!-- 
  <div class="valido">
     <mdb-success>Excelente {{cliente.nombre}} este es tu usuario:{{cliente.nombre_usuario}},selecciona el boton siguiente  </mdb-success>
  </div>
 -->         
- <button type="submit"  (click)="verifica_cliente()" class="btn btn-primary">Siguiente <i class="angle-double-right"
+          
+            <button type="submit"  (click)="verifica_cliente()" class="btn btn-primary">Siguiente <i class="angle-double-right"
                     name="siguiente"></i></button>
 
-            <button type="submit" style="margin-left: 25px"  class="btn btn-primary">Reenviar codigo <i class="angle-double-right"
+            <button type="submit"(click)="enviaCodigo()" style="margin-left: 25px"  [disabled]="diff<=config_time" class="btn btn-primary">Reenviar codigo <i class="angle-double-right"
                     name="reenviar"></i></button>
+        </form>
+            <form *ngIf="estado === 'valido'">
+                    <h3 style="color:rgb(6, 99, 68)">
+                !!!Validación satisfactoria!!! Su nombre de usuario es: {{cliente.nombre_usuario}}
+            </h3>
+                <br>
+            <button type="submit"  class="btn btn-primary">
+                <a [routerLink]="['/home']">Ingresar a mi banca digital </a>
+            </button>
+    
+            <button type="submit" style="margin-left: 25px"  class="btn btn-primary">
+                <a [routerLink]="['/login']">Inicio</a>
+            </button>
+           
         </form>
     </div>
 </div>
